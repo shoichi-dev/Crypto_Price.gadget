@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gadget>
+  <name>CryptoPrice</name>
+  <version>1.0.0.0</version>
+  <author name="Nattapon Chuekamhod">
+  </author>
+  <icons>
+    <icon height="48" width="48" src="resource/logo.jpg" />
+  </icons>
+  <hosts>
+    <host name="sidebar">
+      <base type="HTML" apiVersion="1.0.0" src="gadget.html" />
+      <permissions>Full</permissions>
+	  <autoscaleDPI>true</autoscaleDPI>
+      <platform minPlatformVersion="1.0" />
+    </host>
+  </hosts>
+</gadget>
