@@ -7,7 +7,7 @@
 ![path](https://github.com/shoichi-dev/Crypto_Price.gadget/blob/master/resource/crypto_1.PNG?raw=true)
 
 ss
-![ss](https://github.com/shoichi-dev/Crypto_Price.gadget/blob/master/resource/crypto_2.PNG?raw=true
+![ss](https://github.com/shoichi-dev/Crypto_Price.gadget/blob/master/resource/crypto_2.PNG?raw=true)
 
 Edit market etc.
 ```
