@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=Unicode" />
+		<title>Hello World</title>
+        <style type="text/css">
+			body
+			{
+				margin: 0;
+				width:130px;
+				height:60px;
+				font-family: tahoma;
+				font-weight: bold;
+				font-size: 20px;
+				color:silver;
+			}
+			#gadgetContent
+			{
+				vertical-align: middle;
+				text-align: center;
+				overflow: hidden;
+			}
+        </style>
+
+    	<script language="javascript" type="text/javascript" src="./resource/Lib/jquery.js"></script>
+		<script type="text/jscript" language="jscript">
+			//System.Gadget.settingsUI = "settings.html"; if there is setting gadget.
+			
+			$(document).ready(function()
+			{
+				displayRefresh()
+			});
+			setInterval("displayRefresh()", 1000);
+			function displayRefresh(){
+				//var theUrl = "https://ftx.com/api/markets/BTC_USD/orderbook?depth=1&seed="+Math.random()
+				var theUrl = "https://test.deribit.com/api/v2/public/get_order_book?depth=5&instrument_name=BTC-PERPETUAL&seed="+Math.random()
+
+				$.ajax({
+					type: 'GET',
+					url: theUrl,
+					dataType: 'json',
+					success: function (data) {
+					//	System.Debug.outputString( obj[0]);
+						var obj = data.result.bids[0]
+						$('#BTC').text(obj[0])
+					},
+					 error: function (result) {
+					//	System.Debug.outputString( obj[0]);
+						var errData = JSON.parse(result.response)
+							console.log(errData.error)
+						$('#BTC').text(errData.error)
+					}
+				})
+
+				theUrl = "https://test.deribit.com/api/v2/public/get_order_book?depth=5&instrument_name=ETH-PERPETUAL&seed="+Math.random()
+				$.ajax({
+					type: 'GET',
+					url: theUrl,
+					dataType: 'json',
+					success: function (data) {
+					//	System.Debug.outputString( obj[0]);
+						var obj = data.result.bids[0]
+						$('#ETH').text(obj[0])
+					},
+					 error: function (result) {
+					//	System.Debug.outputString( obj[0]);
+						var errData = JSON.parse(result.response)
+							console.log(errData.error)
+						$('#ETH').text(errData.error)
+					}
+				})
+			
+			}
+		</script>
+    </head>
+
+    <body>
+		<g:background id="background" src="./resource/background.png" style="position:absolute;top:0;left:0;z-index:-999;no=repeat;" >
+		</g:background>
+		 <table border="0" cellpadding="2" cellspacing="2" width="0%">
+			<tr><td>BTC</td><td><span id="BTC" ></span></td></tr>
+			<tr><td>ETH</td><td><span id="ETH"></span></td></tr>
+			<!--<tr><td>XRP</td><td><span id="XRP">Hello World!</span></td></tr>-->
+		</table>
+    </body>
+</html>
