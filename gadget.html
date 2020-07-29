@@ -29,10 +29,11 @@
 			{
 				displayRefresh()
 			});
+			var symbol = 'BTC-25DEC20';
 			setInterval("displayRefresh()", 1000);
 			function displayRefresh(){
 				//var theUrl = "https://ftx.com/api/markets/BTC_USD/orderbook?depth=1&seed="+Math.random()
-				var theUrl = "https://test.deribit.com/api/v2/public/get_order_book?depth=5&instrument_name=BTC-PERPETUAL&seed="+Math.random()
+				var theUrl = "https://test.deribit.com/api/v2/public/get_order_book?depth=5&instrument_name="+symbol+"&seed="+Math.random()
 
 				$.ajax({
 					type: 'GET',
